@@ -180,7 +180,8 @@ environment (`[judge]` extra). The judge never runs in the tests. `numpy` is the
 
 ## The dataset
 
-A companion release, `latent-agent-sandbox-episodes` (CC BY 4.0), holds the 178 natural (never-instructed)
+A companion release, [`latent-agent-sandbox-episodes`](https://huggingface.co/datasets/vedantgaur/latent-agent-sandbox-episodes)
+(CC BY 4.0, on Hugging Face), holds the 178 natural (never-instructed)
 cheating episodes of gpt-oss-120b from our collection (86 charged the other account and completed the paid action
 with it, 18 read the other account's balance with the planted key and then refused to proceed, 74 are answer-key
 reads or writes of which 19 reached the final answer) with 178 honest episodes matched per pressure cell, in the

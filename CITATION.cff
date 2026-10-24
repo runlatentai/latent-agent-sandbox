@@ -26,5 +26,5 @@ references:
     version: 0.1.0
     date-released: "2026-10-22"
     license: CC-BY-4.0
-    url: "https://github.com/runlatentai/latent-agent-sandbox-episodes"
+    url: "https://huggingface.co/datasets/vedantgaur/latent-agent-sandbox-episodes"
     notes: "Released beside the sandbox; the transcripts contain a model reasoning about taking a planted shortcut, which is the point of the data, and no technique."
