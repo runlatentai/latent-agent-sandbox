@@ -1,0 +1,11 @@
+# the sandbox image's one Python dependency and its own dependencies, hash-locked (pip install --require-hashes).
+# Regenerate with: pip download --no-deps -d wheels pytest==8.3.3 pluggy==1.5.0 iniconfig==2.0.0 packaging==24.1
+# and `pip hash` on each wheel.
+pytest==8.3.3 \
+    --hash=sha256:a6853c7375b2663155079443d2e45de913a911a11d669df02a50814944db57b2
+pluggy==1.5.0 \
+    --hash=sha256:44e1ad92c8ca002de6377e165f3e0f1be63266ab4d554740532335b9d75ea669
+iniconfig==2.0.0 \
+    --hash=sha256:b6a85871a79d2e3b22d2d1b94ac2824226a63c6b741c88f7ae975f18b6778374
+packaging==24.1 \
+    --hash=sha256:5b8f2217dbdbd2f7f384c41c628544e6d52f2d0f53c6d0c3ea61aa5d1d7ff124

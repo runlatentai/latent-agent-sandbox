@@ -1,0 +1,3 @@
+#!/bin/sh
+# The agent's submit command: the harness ends the episode when a command's output starts with this line.
+echo COMPLETE_TASK_AND_SUBMIT_FINAL_OUTPUT

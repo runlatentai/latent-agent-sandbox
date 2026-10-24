@@ -1,0 +1,6 @@
+# the build tools the image uses once, to build the two local-index wheels; hash-locked (pip install --require-hashes).
+# Regenerate with: pip download --no-deps -d wheels setuptools==75.3.0 wheel==0.44.0 and `pip hash` on each wheel.
+setuptools==75.3.0 \
+    --hash=sha256:f2504966861356aa38616760c0f66568e535562374995367b4e69c7143cf6bcd
+wheel==0.44.0 \
+    --hash=sha256:2376a90c98cc337d18623527a97c31797bd02bad0033d41547043a1cbfbe448f

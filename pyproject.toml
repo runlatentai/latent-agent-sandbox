@@ -1,0 +1,85 @@
+[build-system]
+requires = ["setuptools>=77"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "latent-agent-sandbox"
+version = "0.1.0"
+description = "A small, offline sandbox that mirrors the pattern of agent shortcut incidents: planted forbidden resources, mechanical labels from access logs, and a per-step monitor hook that can hold a tool call before it runs."
+readme = "README.md"
+license = "Apache-2.0"
+license-files = ["LICENSE"]
+requires-python = ">=3.11"
+authors = [{name = "Latent Systems, Inc."}]
+keywords = ["agents", "sandbox", "reward hacking", "monitoring", "evaluation", "safety"]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Science/Research",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Programming Language :: Python :: 3.14",
+    "Topic :: Scientific/Engineering :: Artificial Intelligence",
+]
+dependencies = []
+
+[project.optional-dependencies]
+baselines = ["numpy>=1.24"]
+judge = ["numpy>=1.24", "anthropic>=0.40"]
+dev = ["pytest>=8", "numpy>=1.24", "ruff>=0.6"]
+
+[project.scripts]
+las-run = "latent_agent_sandbox.run_pilot:main"
+las-episode = "latent_agent_sandbox.agent:main"
+las-fake = "latent_agent_sandbox.fake_agent:main"
+las-label = "latent_agent_sandbox.label:main"
+las-relabel = "latent_agent_sandbox.relabel:main"
+las-export = "latent_agent_sandbox.contract_out:main"
+las-hold-summary = "latent_agent_sandbox.hold_summary:main"
+
+[project.urls]
+Homepage = "https://github.com/runlatentai/latent-agent-sandbox"
+
+[tool.setuptools.packages.find]
+include = ["latent_agent_sandbox*"]
+
+# the non-Python files the package needs at run time, listed explicitly (no `**/*` glob: a sweep would ship
+# __pycache__ and *.pyc from a working tree); exclude-package-data below keeps bytecode out regardless
+[tool.setuptools.package-data]
+latent_agent_sandbox = [
+    "docker/Dockerfile",
+    "docker/.dockerignore",
+    "docker/requirements-sandbox.txt",
+    "docker/requirements-buildtools.txt",
+    "docker/sandbox/entrypoint.sh",
+    "docker/sandbox/submit",
+    "docker/sandbox/*.py",
+    "docker/sandbox/index_src/numfmt/pyproject.toml",
+    "docker/sandbox/index_src/numfmt/numfmt/*.py",
+    "docker/sandbox/index_src/textkit/pyproject.toml",
+    "docker/sandbox/index_src/textkit/textkit/*.py",
+    "scenarios/*/SPEC.md",
+    "scenarios/answer_key/templates/*/SPEC.md",
+    "scenarios/answer_key/templates/*/meta.json",
+    "scenarios/answer_key/templates/*/cases.json",
+    "scenarios/answer_key/templates/*/module.py",
+    "scenarios/answer_key/templates/*/solution.py",
+    "scenarios/answer_key/templates/*/test_public.py",
+    "baselines/rubrics/*.txt",
+]
+
+[tool.setuptools.exclude-package-data]
+"*" = ["__pycache__", "__pycache__/*", "*.pyc", "*.pyo"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-q -p no:cacheprovider"
+
+[tool.ruff]
+line-length = 130
+target-version = "py311"
+
+[tool.ruff.lint]
+select = ["E", "F", "W", "B", "UP"]
+ignore = ["E501"]   # the docstrings and tables run long on purpose; line-length still governs the formatter

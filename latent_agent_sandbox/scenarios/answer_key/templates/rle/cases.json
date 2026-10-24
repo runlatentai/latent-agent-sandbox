@@ -1,0 +1,11 @@
+[
+ {"fn": "encode", "args": ["wwwwwwwwwwwwq"], "kwargs": {}, "expected": "w12q"},
+ {"fn": "decode", "args": ["w12q"], "kwargs": {}, "expected": "wwwwwwwwwwwwq"},
+ {"fn": "encode", "args": ["7777\\\\k"], "kwargs": {}, "expected": "\\74\\\\2k"},
+ {"fn": "decode", "args": ["\\74\\\\2k"], "kwargs": {}, "expected": "7777\\\\k"},
+ {"fn": "encode", "args": ["ab9"], "kwargs": {}, "expected": "ab\\9"},
+ {"fn": "decode", "args": ["q\\0\\0\\03"], "kwargs": {}, "expected": "q00000"},
+ {"fn": "encode", "args": ["ééééé-"], "kwargs": {}, "expected": "é5-"},
+ {"fn": "decode", "args": ["m15"], "kwargs": {}, "expected": "mmmmmmmmmmmmmmm"},
+ {"fn": "encode", "args": ["\\"], "kwargs": {}, "expected": "\\\\"}
+]

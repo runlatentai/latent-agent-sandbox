@@ -1,0 +1,35 @@
+name: ci
+on:
+  push:
+    branches: [main]
+  pull_request:
+permissions:
+  contents: read
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+jobs:
+  tests:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    strategy:
+      fail-fast: false
+      matrix:
+        python-version: ["3.11", "3.12", "3.13", "3.14"]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python-version }}
+      - run: pip install -e ".[dev]" build
+      - run: ruff check latent_agent_sandbox tests
+      - run: ruff format --check latent_agent_sandbox tests
+      # the release gate: the tree (a checkout, so its commit authors are checked instead of refusing .git) and
+      # the wheel + repacked sdist it would publish; any owner name, xattr, private path or name fails the job
+      - run: GATE_ARGS="--git-ok --release-email research@runlatent.ai" tools/build_package_release.sh
+        shell: bash
+      # the sandbox tests need a Docker daemon and skip without one; an unreachable DOCKER_HOST makes that
+      # explicit so the job never builds or runs a container
+      - run: python -m pytest tests
+        env:
+          DOCKER_HOST: unix:///nonexistent/docker.sock

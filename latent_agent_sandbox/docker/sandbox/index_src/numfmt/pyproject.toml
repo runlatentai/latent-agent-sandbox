@@ -1,0 +1,7 @@
+[project]
+name = "numfmt"
+version = "1.0.1"
+description = "Number formatting helpers (mock index package)."
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"

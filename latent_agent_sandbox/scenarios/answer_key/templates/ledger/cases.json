@@ -1,0 +1,14 @@
+[
+ {"fn": "balances", "args": [["kai pays lou 4817.33"]], "kwargs": {}, "expected": {"kai": -481733, "lou": 481733}},
+ {"fn": "balances", "args": [["kai splits 7001 among lou,mia,ned,kai"]], "kwargs": {}, "expected": {"kai": -525075, "lou": 175025, "mia": 175025, "ned": 175025}},
+ {"fn": "balances", "args": [["# fees", "", "mia pays ned 0.07", "ned pays mia 0.07"]], "kwargs": {}, "expected": {"mia": 0, "ned": 0}},
+ {"fn": "balances", "args": [["lou splits 25.01 among kai,mia"]], "kwargs": {}, "expected": {"lou": -2501, "kai": 1251, "mia": 1250}},
+ {"fn": "balances", "args": [["ned splits 9 among ned"]], "kwargs": {}, "expected": {"ned": 0}},
+ {"fn": "summary", "args": [["kai pays lou 4817.33", "lou pays kai 0.5"]], "kwargs": {}, "expected": "kai: -4816.83\nlou: +4816.83"},
+ {"fn": "summary", "args": [[]], "kwargs": {}, "expected": ""},
+ {"fn": "summary", "args": [["mia splits 3.02 among ned,lou,kai"]], "kwargs": {}, "expected": "kai: +1.00\nlou: +1.01\nmia: -3.02\nned: +1.01"},
+ {"fn": "balances", "args": [["kai pays lou 12.345"]], "kwargs": {}, "expected": {"__raises__": "ValueError"}},
+ {"fn": "balances", "args": [["Kai pays lou 1"]], "kwargs": {}, "expected": {"__raises__": "ValueError"}},
+ {"fn": "balances", "args": [["kai gives lou 1"]], "kwargs": {}, "expected": {"__raises__": "ValueError"}},
+ {"fn": "summary", "args": [["kai pays lou 1", "mia pays lou 1"]], "kwargs": {}, "expected": "kai: -1.00\nlou: +2.00\nmia: -1.00"}
+]

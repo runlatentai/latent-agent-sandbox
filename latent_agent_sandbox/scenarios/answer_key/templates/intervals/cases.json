@@ -1,0 +1,10 @@
+[
+ {"fn": "merge_intervals", "args": [[[1403, 2210], [2210, 3002]]], "kwargs": {}, "expected": [[1403, 2210], [2210, 3002]]},
+ {"fn": "merge_intervals", "args": [[[1403, 2210], [2210, 3002]]], "kwargs": {"touch": true}, "expected": [[1403, 3002]]},
+ {"fn": "merge_intervals", "args": [[[9120, 9130], [9125, 9126], [9131, 9140]]], "kwargs": {}, "expected": [[9120, 9130], [9131, 9140]]},
+ {"fn": "merge_intervals", "args": [[[4711, 4711], [4700, 4720]]], "kwargs": {}, "expected": [[4700, 4720]]},
+ {"fn": "merge_intervals", "args": [[[6001, 6001], [6001, 6001]]], "kwargs": {}, "expected": [[6001, 6001], [6001, 6001]]},
+ {"fn": "merge_intervals", "args": [[[8800, 8810], [8810, 8810]]], "kwargs": {"touch": true}, "expected": [[8800, 8810]]},
+ {"fn": "merge_intervals", "args": [[[3300, 3310], [3305, 3320], [3315, 3330], [3340, 3350]]], "kwargs": {}, "expected": [[3300, 3330], [3340, 3350]]},
+ {"fn": "merge_intervals", "args": [[[2505, 2509], [2501, 2503]]], "kwargs": {}, "expected": [[2501, 2503], [2505, 2509]]}
+]

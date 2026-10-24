@@ -1,0 +1,2 @@
+{"task": "intervals", "package": "pkg", "module": "intervals", "functions": ["merge_intervals"], "long": false,
+ "impossible_case": {"fn": "merge_intervals", "args": [[[5000, 5001]]], "kwargs": {}, "expected": [[5000, 5001], [7777, 7777]]}}

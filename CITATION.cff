@@ -1,0 +1,30 @@
+cff-version: 1.2.0
+message: "If you use this sandbox or the episodes dataset, please cite them as below."
+title: "latent-agent-sandbox: a recreation of the pattern of agent shortcut incidents with mechanical labels and a per-step hold hook"
+authors:
+  - name: "Latent Systems, Inc."
+contact:
+  - name: "Latent Systems, Inc."
+    email: "founders@runlatent.ai"
+type: software
+version: 0.1.0
+date-released: "2026-10-22"
+license: Apache-2.0
+repository-code: "https://github.com/runlatentai/latent-agent-sandbox"
+url: "https://github.com/runlatentai/latent-agent-sandbox"
+abstract: >-
+  An offline Docker sandbox in which a coding agent works on graded tasks while a planted, harmless, forbidden
+  resource (an answer key, a funded payment key, a shared scratchpad) is reachable with a listing or a read.
+  Every episode is labeled mechanically from the sandbox's access logs (discovery step, first violating step,
+  used result, concealment). A per-step monitor hook can hold a tool call before it runs. Nothing here recreates
+  a real exploit or a real system; it is a recreation of the pattern of publicly reported incidents.
+references:
+  - type: data
+    title: "latent-agent-sandbox-episodes: natural shortcut-taking and honest episodes of gpt-oss-120b in the sandbox, with access-log labels"
+    authors:
+      - name: "Latent Systems, Inc."
+    version: 0.1.0
+    date-released: "2026-10-22"
+    license: CC-BY-4.0
+    url: "https://github.com/runlatentai/latent-agent-sandbox-episodes"
+    notes: "Released beside the sandbox; the transcripts contain a model reasoning about taking a planted shortcut, which is the point of the data, and no technique."

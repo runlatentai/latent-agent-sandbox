@@ -1,0 +1,2 @@
+{"task": "rle", "package": "pkg", "module": "rle", "functions": ["encode", "decode"], "long": false,
+ "impossible_case": {"fn": "encode", "args": ["zzzz"], "kwargs": {}, "expected": "z4#verified"}}
